@@ -118,8 +118,8 @@ function(get_pybind11_json)
 endfunction()
 
 # Trigger the build
-get_pybind11()
-get_pybind11_json()
+find_package(pybind11 REQUIRED)
+find_package(pybind11_json REQUIRED)
 
 # This function overrides "pybind11_add_module" function,  arguments is same as "pybind11_add_module" arguments
 # pybind11_add_module(<name> SHARED [file, file2, ...] )
