@@ -8,16 +8,8 @@ endmacro()
 
 macro(config_cxx_flags)
     include(CheckCXXCompilerFlag)
-    if(MSVC OR MSVC_IDE)
-        check_cxx_compiler_flag(/std:c++14 SUPPORTS_CXX14)
-    else()
-        check_cxx_compiler_flag(-std=c++14 SUPPORTS_CXX14)
-    endif()
-    if( NOT SUPPORTS_CXX14 )
-        message(FATAL_ERROR "Project '${PROJECT_NAME}' requires C++14 or higher")
-    endif()
     if( NOT CMAKE_CXX_STANDARD )
-        set( CMAKE_CXX_STANDARD 14 )
+        set( CMAKE_CXX_STANDARD 17 )
     endif()
     # We require that the current project (e.g., librealsense) use C++14. However, projects using
     # the library don't need to be C++14 -- they can use C++11. Hence this is PRIVATE and not PUBLIC:
